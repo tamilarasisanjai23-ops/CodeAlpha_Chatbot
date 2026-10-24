@@ -2,6 +2,10 @@
 
 A Java-based chatbot application featuring a graphical user interface, rule-based responses, and persistent conversation history. Built as a hands-on Java development project to practice object-oriented programming, GUI development, and file handling.
 
+## Application Screenshot
+
+![Java Chatbot Assistant GUI](screenshots/chatbot-gui.png)
+
 ## Features
 
 - **Interactive GUI:** User-friendly interface built with Java Swing.
