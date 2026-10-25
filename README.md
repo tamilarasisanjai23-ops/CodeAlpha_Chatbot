@@ -4,7 +4,7 @@ A Java-based chatbot application featuring a graphical user interface, rule-base
 
 ## Application Screenshot
 
-![Java Chatbot Assistant GUI](screenshots/chatbot-gui.png)
+![Java Chatbot Assistant GUI](screenshots/chatbot-gui-fixed.png)
 
 ## Features
 
@@ -38,10 +38,12 @@ CodeAlpha_Chatbot/
 ├── ChatbotEngine.java
 ├── ChatHistory.java
 ├── README.md
-└── .gitignore
+├── .gitignore
+└── screenshots/
+    └── chatbot-gui-fixed.png
 ```
 
-**File descriptions**
+### File Descriptions
 
 - `Main.java` — Console application entry point.
 - `ChatbotGUI.java` — Graphical user interface and user interactions.
@@ -66,26 +68,26 @@ javac -version
 
 ## Getting Started
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/tamilarasisanjai23-ops/CodeAlpha_Chatbot.git
 cd CodeAlpha_Chatbot
 ```
 
-### 2. Compile the application
+### 2. Compile the Application
 
 ```bash
 javac Main.java ChatbotEngine.java ChatHistory.java ChatbotGUI.java
 ```
 
-### 3. Run the GUI version
+### 3. Run the GUI Version
 
 ```bash
 java ChatbotGUI
 ```
 
-### 4. Run the console version
+### 4. Run the Console Version
 
 ```bash
 java Main
