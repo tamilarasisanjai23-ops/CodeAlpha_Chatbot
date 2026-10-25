@@ -1,6 +1,6 @@
 # Java Chatbot Assistant
 
-A Java-based chatbot application featuring a graphical user interface, rule-based responses, and persistent conversation history. Built as a hands-on Java development project to practice object-oriented programming, GUI development, and file handling.
+A Java-based chatbot application featuring a graphical user interface, rule-based responses, and persistent conversation history. This project demonstrates Java programming, object-oriented programming, GUI development, and file handling.
 
 ## Application Screenshot
 
@@ -9,17 +9,17 @@ A Java-based chatbot application featuring a graphical user interface, rule-base
 ## Features
 
 - **Interactive GUI:** User-friendly interface built with Java Swing.
-- **Rule-Based Responses:** Responds to greetings, Java, SQL, DBMS, DSA, aptitude, and placement-related questions.
+- **Rule-Based Responses:** Answers common questions about Java, JVM, OOP, SQL, DBMS, DSA, aptitude, and placements.
 - **Quick Suggestions:** Predefined buttons for common queries.
 - **Chat Timestamps:** Displays timestamps for conversations.
 - **Persistent Chat History:** Saves conversations locally to a text file.
-- **View History:** Review previously saved conversations.
-- **Search History:** Find saved messages using keywords.
-- **Export History:** Export saved conversations to a selected location.
-- **Clear Chat:** Clear messages from the current chat window.
-- **New Chat:** Start a fresh conversation window.
-- **Keyboard Support:** Send messages by pressing Enter.
-- **Exit Confirmation:** Confirmation prompt before closing the application.
+- **View History:** Reviews previously saved conversations.
+- **Search History:** Finds saved messages using keywords.
+- **Export History:** Exports conversation history to a selected location.
+- **Clear Chat:** Clears messages from the current chat window.
+- **New Chat:** Starts a fresh visible conversation.
+- **Keyboard Support:** Sends messages by pressing Enter.
+- **Exit Confirmation:** Asks for confirmation before closing the application.
 
 ## Tech Stack
 
@@ -43,15 +43,15 @@ CodeAlpha_Chatbot/
     └── chatbot-gui-fixed.png
 ```
 
-### File Descriptions
+## File Descriptions
 
 - `Main.java` — Console application entry point.
-- `ChatbotGUI.java` — Graphical user interface and user interactions.
-- `ChatbotEngine.java` — Rule-based response processing.
-- `ChatHistory.java` — Saves, searches, and exports conversation history.
+- `ChatbotGUI.java` — Handles the graphical user interface and user interactions.
+- `ChatbotEngine.java` — Processes messages and generates rule-based responses.
+- `ChatHistory.java` — Handles conversation history, searching, and exporting.
 - `.gitignore` — Excludes compiled files and local chat history from Git.
 
-The `chat_history.txt` file is generated locally when the application saves conversations. It is not required in the repository.
+The `chat_history.txt` file is generated locally when conversations are saved. It does not need to be committed to the repository.
 
 ## Prerequisites
 
@@ -99,19 +99,19 @@ java Main
 2. Type a message in the input field.
 3. Click **Send** or press Enter.
 4. Use the suggestion buttons for quick questions.
-5. Open **View History** to review saved conversations.
-6. Use **Search History** to find messages by keyword.
-7. Use **Export History** to save a copy of the conversation history.
-8. Use **Clear Chat** or **New Chat** to clear the current visible conversation.
+5. Select **View History** to review saved conversations.
+6. Select **Search History** to find messages by keyword.
+7. Select **Export History** to save a copy of the conversation history.
+8. Use **Clear Chat** or **New Chat** to manage the visible conversation.
 
 ## Project Type
 
-Educational Java project developed for internship learning and practical programming experience. The chatbot currently uses rule-based responses rather than a trained AI model.
+Educational Java project developed for internship learning and practical programming experience. The chatbot currently uses rule-based keyword matching and does not use a trained machine learning model.
 
 ## Future Enhancements
 
 - Expand the chatbot's knowledge base.
-- Integrate an NLP or AI model.
+- Integrate an NLP library or AI model.
 - Improve conversational context handling.
 - Add automated tests and enhanced error handling.
 
