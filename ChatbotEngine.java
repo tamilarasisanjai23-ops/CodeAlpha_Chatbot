@@ -2,6 +2,7 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Random;
 
 public class ChatbotEngine {
@@ -13,13 +14,16 @@ public class ChatbotEngine {
             return "Please enter a message.";
         }
 
-        String message = input.toLowerCase().trim();
+        String message = input.toLowerCase(Locale.ROOT)
+                .replaceAll("[^a-z0-9\\s]", " ")
+                .replaceAll("\\s+", " ")
+                .trim();
 
-        if (message.matches(".*\\b(bye|goodbye|exit)\\b.*")) {
+        if (containsAny(message, "bye", "goodbye", "exit")) {
             return "Goodbye! Keep learning and have a great day!";
         }
 
-        if (message.matches(".*\\b(hello|hi|hey)\\b.*")) {
+        if (containsAny(message, "hello", "hi", "hey")) {
             return randomReply(
                 "Hello! How can I help you?",
                 "Hi there! What would you like to learn?",
@@ -27,8 +31,7 @@ public class ChatbotEngine {
             );
         }
 
-        if (message.contains("your name")
-                || message.equals("name")) {
+        if (message.contains("your name") || message.equals("name")) {
             return "I am Java Chatbot, your virtual assistant.";
         }
 
@@ -44,7 +47,7 @@ public class ChatbotEngine {
             return "Good night! Rest well and keep learning tomorrow.";
         }
 
-        if (message.contains("thank")) {
+        if (containsAny(message, "thank", "thanks", "thank you")) {
             return "You are welcome! Happy to help.";
         }
 
@@ -62,10 +65,11 @@ public class ChatbotEngine {
                     ) + ".";
         }
 
-        if (message.contains("oops")
-                || message.contains("object oriented")
-                || message.contains("class and object")) {
-            return "OOP means Object-Oriented Programming. "
+        if (containsAny(message, "oop", "oops", "object oriented",
+                "class and object", "polymorphism",
+                "encapsulation", "abstraction")) {
+            return "OOP stands for Object-Oriented Programming. "
+                 + "It organizes programs using classes and objects. "
                  + "Its four main principles are Encapsulation, "
                  + "Inheritance, Polymorphism, and Abstraction.";
         }
@@ -75,62 +79,66 @@ public class ChatbotEngine {
                  + "and methods from another class using extends in Java.";
         }
 
-        if (message.contains("loop")) {
+        if (containsAny(message, "loop", "for loop", "while loop")) {
             return "Java has for, while, and do-while loops. "
                  + "Loops repeat a block of code while a condition is met.";
         }
 
-        if (message.contains("java")) {
-            return "Java is an object-oriented programming language. "
-                 + "Important topics include variables, loops, arrays, "
-                 + "classes, objects, inheritance, and collections.";
+        if (containsAny(message, "jvm", "java virtual machine")) {
+    return "JVM stands for Java Virtual Machine. "
+         + "It executes Java bytecode and helps Java programs "
+         + "run on different platforms.";
+}
+            if (containsAny(message, "java", "jdk", "jre", "jvm",
+        "explain java", "tell me about java", "java meaning")) {
+    return "Java is an object-oriented programming language. "
+         + "It is platform-independent and runs on the JVM. "
+         + "Important topics include variables, loops, arrays, "
+         + "classes, objects, inheritance, and collections.";
+}
+
+        if (containsAny(message, "sql", "select query", "join query")) {
+            return "SQL is used to manage relational databases. Start with "
+                 + "SELECT, WHERE, ORDER BY, GROUP BY, JOIN, INSERT, "
+                 + "UPDATE, and DELETE.";
         }
 
-        if (message.contains("sql")) {
-            return "SQL is used to manage relational databases. "
-                 + "Start with SELECT, WHERE, ORDER BY, GROUP BY, "
-                 + "JOIN, INSERT, UPDATE, and DELETE.";
+        if (containsAny(message, "dbms", "database", "normalization")) {
+            return "DBMS stands for Database Management System. It helps "
+                 + "store, organize, retrieve, and manage data. Learn keys, "
+                 + "normalization, relationships, and SQL.";
         }
 
-        if (message.contains("dbms") || message.contains("database")) {
-            return "DBMS stands for Database Management System. "
-                 + "It helps store, organize, retrieve, and manage data. "
-                 + "Learn keys, normalization, relationships, and SQL.";
+        if (containsAny(message, "dsa", "data structure",
+                "algorithm", "tree", "array", "linked list")) {
+            return "DSA means Data Structures and Algorithms. Start with "
+                 + "arrays, strings, linked lists, stacks, queues, trees, "
+                 + "searching, and sorting.";
         }
 
-        if (message.contains("dsa")
-                || message.contains("data structure")
-                || message.contains("algorithm")) {
-            return "DSA means Data Structures and Algorithms. "
-                 + "Start with arrays, strings, linked lists, stacks, "
-                 + "queues, trees, searching, and sorting.";
-        }
-
-        if (message.contains("aptitude")) {
+        if (containsAny(message, "aptitude", "percentage",
+                "average", "time and work")) {
             return "Practice percentages, ratios, averages, time and work, "
                  + "speed and distance, number series, and logical reasoning.";
         }
 
-        if (message.contains("placement")
-                || message.contains("interview")
-                || message.contains("job")) {
+        if (containsAny(message, "placement", "interview", "job",
+                "resume", "self introduction")) {
             return "For placements, practise Java, SQL, DSA, aptitude, "
                  + "communication, self-introduction, and project explanation.";
         }
 
-        if (message.contains("project")) {
+        if (containsAny(message, "project", "my project")) {
             return "Explain your project problem, objective, technologies, "
                  + "features, your contribution, and what you learned.";
         }
 
-        if (message.contains("college")
-                || message.contains("study")) {
+        if (containsAny(message, "college", "study", "study plan")) {
             return "Make a daily study plan. Learn one concept, write code, "
                  + "test it, and revise what you learned.";
         }
 
-        if (message.contains("help")
-                || message.equals("commands")) {
+        if (containsAny(message, "help", "commands", "what can you do")) {
             return "You can ask about Java, OOP, loops, SQL, DBMS, DSA, "
                  + "aptitude, placements, projects, date, or time.";
         }
@@ -140,6 +148,15 @@ public class ChatbotEngine {
             "Could you ask that in a different way?",
             "I am a rule-based chatbot. Try a topic from the Help command."
         );
+    }
+
+    private boolean containsAny(String message, String... keywords) {
+        for (String keyword : keywords) {
+            if (message.contains(keyword)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private String randomReply(String... replies) {
